@@ -1,4 +1,5 @@
 <h2>Subsystems</h2>
+
 <ul>
   <% @blueprints.each do |blueprint| %>
     <li>
@@ -6,3 +7,27 @@
     </li>
   <% end %>
 </ul>
+
+<% @blueprints.each do |blueprint| %>
+  <div id="<%= dom_id(blueprint) %>">
+    <h1><%= blueprint.name %></h1>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Salvage</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% blueprint.materials.each do |material| %>
+          <tr>
+            <td><%= material.quantity %></td>
+            <td><%= material.item.name %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
