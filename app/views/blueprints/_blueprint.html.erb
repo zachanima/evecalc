@@ -2,14 +2,14 @@
   <div class="header">
     <h1><%= blueprint.name %></h1>
 
-    <div class="inactive">
+    <div class="faded">
       Subsystem @ sell
       <span class="value">
         <%=isk blueprint.item.sell %>
       </span>
     </div>
 
-    <div class="inactive">
+    <div class="faded">
       Materials @ buy
       <span class="value">
         <%=isk blueprint.buy %>
@@ -27,13 +27,13 @@
 
 
   <div class="reverse-engineering">
-    <h2>Reverse Engineering<span>(4 x cost per run)</span></h2>
+    <h2>Reverse Engineering<span>(4 &times; cost/run)</span></h2>
     <!--
-    <div class="inactive">Intact Weapon Subroutines</div>
+    <div class="faded">Intact Weapon Subroutines</div>
     <div>Malfunctioning Weapon Subroutines</div>
-    <div class="inactive">Wrecked Weapon Subroutines</div>
+    <div class="faded">Wrecked Weapon Subroutines</div>
     -->
-    <div class="inactive">Out of order</div>
+    <div class="faded">Out of order</div>
   </div>
 
 
