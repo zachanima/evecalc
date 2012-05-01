@@ -1,0 +1,8 @@
+<h2>Subsystems</h2>
+<ul>
+  <% @blueprints.each do |blueprint| %>
+    <li>
+      <%= link_to blueprint.name, "##{blueprint.type_id}" %>
+    </li>
+  <% end %>
+</ul>
