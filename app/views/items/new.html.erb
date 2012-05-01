@@ -2,11 +2,11 @@
 <%= form_for @item do |f| %>
   <ol>
     <li>
-      <label for="type_id">Type ID</label>
+      <%= f.label :type_id %>
       <%= f.number_field :type_id %>
     </li>
     <li>
-      <label for="name">Name</label>
+      <%= f.label :name %>
       <%= f.text_field :name %>
     </li>
   </ol>
