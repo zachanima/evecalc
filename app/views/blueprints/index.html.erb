@@ -3,7 +3,7 @@
   <ul>
     <% @blueprints.each do |blueprint| %>
       <li>
-        <%= link_to "##{blueprint.type_id}" do %>
+        <%= link_to "##{blueprint.id}" do %>
           <%= blueprint.item.name %> (<%= blueprint.profit_in_percent %>%)
           <span class="value"><%=isk blueprint.profit %></span>
         <% end %>
