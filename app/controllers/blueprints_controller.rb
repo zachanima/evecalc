@@ -7,7 +7,26 @@ class BlueprintsController < ApplicationController
     update_items
   end
 
-  private
+  def new
+    @blueprint = Blueprint.new
+    Item.all.each do |item|
+      @blueprint.materials.new item_id: item.id
+    end
+  end
+
+  def create
+    @blueprint = Blueprint.new(params[:blueprint])
+    @blueprint.materials.reject! do |material|
+      material.quantity.nil?
+    end
+    if @blueprint.save
+      redirect_to blueprints_path
+    else
+      render action: :new
+    end
+  end
+
+private
   def update_items
     if (items = Item.outdated.collect(&:type_id)).empty?
       return
