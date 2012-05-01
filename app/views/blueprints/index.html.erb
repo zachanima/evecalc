@@ -1,33 +1,50 @@
-<h2>Subsystems</h2>
-
-<ul>
-  <% @blueprints.each do |blueprint| %>
-    <li>
-      <%= link_to blueprint.name, "##{blueprint.type_id}" %>
-    </li>
-  <% end %>
-</ul>
+<div id="blueprints">
+  <h2>Subsystems</h2>
+  <ul>
+    <% @blueprints.each do |blueprint| %>
+      <li>
+        <%= link_to blueprint.name, "##{blueprint.type_id}" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <% @blueprints.each do |blueprint| %>
-  <div id="<%= dom_id(blueprint) %>">
-    <h1><%= blueprint.name %></h1>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Salvage</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% blueprint.materials.each do |material| %>
+  <div class="blueprint" id="blueprint_<%= blueprint.type_id %>">
+    <div class="header">
+      <h1><%= blueprint.name %></h1>
+      <div class="inactive">Materials @ buy<span class="value">87 million ISK</span></div>
+      <div class="inactive">Subsystem @ sell<span class="value">149 million ISK</span></div>
+      <div class="profit">Profit (70%)<span class="value">61 million ISK</span></div>
+    </div>
+
+    <div class="reverse-engineering">
+      <h2>Reverse Engineering<span>(4 x cost per run)</span></h2>
+      <div class="inactive">Intact Weapon Subroutines</div>
+      <div>Malfunctioning Weapon Subroutines</div>
+      <div class="inactive">Wrecked Weapon Subroutines</div>
+    </div>
+
+    <div class="materials">
+      <h2>Materials</h2>
+      <table>
+        <thead>
           <tr>
-            <td><%= material.quantity %></td>
-            <td><%= material.item.name %></td>
-            <td></td>
+            <th class="value">#</th>
+            <th>Salvage</th>
+            <th class="value">Value</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% blueprint.materials.each do |material| %>
+            <tr>
+              <td class="value"><%= material.quantity %></td>
+              <td><%= material.item.name %></td>
+              <td class="value"><%= material.item.buy %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 <% end %>
