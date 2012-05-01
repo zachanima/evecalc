@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501143733) do
+ActiveRecord::Schema.define(:version => 20120501145839) do
 
   create_table "blueprints", :force => true do |t|
     t.integer "type_id"
     t.string  "name"
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "type_id"
+    t.string   "name"
+    t.integer  "buy"
+    t.integer  "sell"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
