@@ -2,7 +2,7 @@
 
 <ul>
   <% @items.each do |item| %>
-    <li><%= item.type_id %>: <%= item.name %></li>
+    <li><%= item.type_id %>: <%= item.name %> (<%=isk item.buy %>)</li>
   <% end %>
 </ul>
 
